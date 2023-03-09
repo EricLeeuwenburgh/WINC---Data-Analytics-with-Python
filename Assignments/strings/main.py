@@ -7,20 +7,22 @@ __human_name__ = 'strings'
 first_goal = "Ruud Gullit"
 second_goal = "Marco van Basten"
 
-goal_0 = 32    #minute the goal was made
+goal_0 = 32    #minute the goal was mades
 goal_1 = 54    #minute the goal was made
 
-scorers = f"{first_goal} {goal_0}, {second_goal} {goal_1}"
+scorers = first_goal + " " + str(goal_0) + ", " + second_goal + " " + str(goal_1)
 report = f"{first_goal} scored in the {goal_0}nd minute\n{second_goal} scored in the {goal_1}th minute"
 
 print(scorers)
 print(report)
 
 player = "Hans van Breukelen"
-first_name = player[0:4]
-last_name_len = len(player[5:])
-name_short = f"{player[0]}." + player[4:]
-chant = f"{first_name}! {first_name}! {first_name}! {first_name}!"
+first_name_index = player.find(" ")       # .find() = search and give back the index up to the found variable
+first_name = player[0:first_name_index]
+last_name = player[first_name_index+1:]
+last_name_len = len(last_name)
+name_short = first_name[0] + ". " + last_name
+chant = (len(first_name)-1) * (first_name + "! ") + (first_name + "!")
 good_chant = chant[-1] != ' '
 
 print(first_name)
