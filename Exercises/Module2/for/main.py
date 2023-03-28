@@ -53,7 +53,19 @@ def most_vowels(countries):
     return(top_three_vowels)
   
   # Exercise 3:
+def alphabet_set(countries):
 
+    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    countries_complete_alphabet = []
+    
+    for country in countries:
+        
+        for alphabet_letter in country.lower():
+            if alphabet_letter in alphabet:
+                alphabet.remove(alphabet_letter)
+                countries_complete_alphabet.append(country)
+            
+    return set(countries_complete_alphabet) # Using set() to remove duplicates from list.
 
 # This block is only run if this file is the entrypoint; python main.py
 # It is not run if it is imported as a module: `from main import *`
@@ -68,3 +80,5 @@ if __name__ == "__main__":
     print(most_vowels(countries))
 
     # Exercise 3:
+    print(alphabet_set(countries))
+    print(len(alphabet_set(countries)))

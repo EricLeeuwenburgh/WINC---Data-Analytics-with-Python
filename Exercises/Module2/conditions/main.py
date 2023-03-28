@@ -14,27 +14,24 @@ def farm_action(weather,time_of_day,cow_milking_status,location_of_cows,season,s
     wait = cows_to_shed == False and milk_cows == False and fertilize_pasture == False and mow_grass == False and cow_milking_status == False
 
     if cow_milking_status == True and location_of_cows == "pasture":
-       print("take cows to cowshed")
-       print("milk cows")
-       print("take cows back to pasture")
+        return """take cows to cowshed\nmilk cows\ntake cows back to pasture"""
     
     elif cows_to_shed:
-        print("take cows to cowshed")
+        return "take cows to cowshed"
 
     elif milk_cows:
-        print("Milk cows") 
-        location_of_cows = "pasture"
+        return "milk cows"
    
     elif fertilize_pasture:
-        print("Fertilize pasture")
+        return "fertilize pasture"
 
     elif mow_grass:
-        print("Mow grass")
+        return "mow grass"
     
     elif wait:
-        print("Wait")
+        return "wait"
 
-#farm_action("rainy", "night", False, 'cowshed', 'winter', True, True)   # fertilize pasture
-#farm_action("rainy", "night", False, 'cowshed', 'winter', False, True)  # wait
-#farm_action("windy", "night", True, 'cowshed', 'winter', True, True)    # milk cows
-farm_action("sunny", "day", True, 'pasture', 'spring', False, True)     # take cows to cowshed + milk cows + take cows back to pasture
+print(farm_action("rainy", "night", False, 'cowshed', 'winter', True, True))   # fertilize pasture
+print(farm_action("rainy", "night", False, 'cowshed', 'winter', False, True))  # wait
+print(farm_action("windy", "night", True, 'cowshed', 'winter', True, True))    # milk cows
+print(farm_action("sunny", "day", True, 'pasture', 'spring', False, True))     # take cows to cowshed + milk cows + take cows back to pasture

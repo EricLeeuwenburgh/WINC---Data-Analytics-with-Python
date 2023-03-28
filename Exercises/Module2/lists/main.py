@@ -10,7 +10,7 @@ def alphabetical_order(film_names):
 
     return film_names
 
-film_names = ["Mission Impossible", "Jumanji", "The Matrix", "Die Hard", "Jaws"]
+film_names = ["Jaws", "Indiana Jones", "E.T.", "Schindler's List" , "Jurassic Parc"]
 
 print(alphabetical_order(film_names))
 
@@ -18,7 +18,7 @@ print(alphabetical_order(film_names))
 def won_golden_globe(film_name):
 
     film_name = film_name.lower()
-    winners = ["jaws", "memoirs of a geisha", "jumanji"]
+    winners = ["jaws", "memoirs of a geisha", "E.T."]
     
     if film_name in winners:
         return True
@@ -30,15 +30,17 @@ winner = won_golden_globe("Memoirs of a geisha")
 print(winner)
 
 # Exercise 3:
-def remove_toto_albums(wrong_film_name):
-    
-    wrong_film_name = wrong_film_name.lower()
-    
-    if wrong_film_name in film_names:
-        film_names.remove(wrong_film_name)
-    
-    return film_names
 
-film_names = ["Mission Impossible", "old is new", "Jumanji", "The Matrix", "hello world", "Die Hard" , "Jurassic Parc"]
+movie_names = ["Jaws", "Old Is New", "Indiana Jones", "Hakuna Matata", "E.T.", "Fahrenheit", "Schindler's List", "Jurassic Parc"]
+toto_albums = ["Fahrenheit","The Seventh One","Toto XX","Falling in Between","Toto XIV", "Old Is New", "Hakuna Matata"]
 
-print(remove_toto_albums("Old Is New"))
+def remove_toto_albums(wrong_movie_names):
+
+    for toto_album in toto_albums:
+        if toto_album in wrong_movie_names: 
+            wrong_movie_names.remove(toto_album)
+
+    wrong_movie_names.sort()
+    return wrong_movie_names
+
+print(remove_toto_albums(movie_names))
