@@ -6,26 +6,29 @@ __human_name__ = "while"
 """ Write your functions here. """
 # Exercise 1:
 
+
 def unique_koala_facts(number_facts):
     count = 0
     max_count = 1000
     list_facts = []
-    
+
     while len(list_facts) < number_facts:
         fact = random_koala_fact()
         count += 1
         if fact not in list_facts:
             list_facts.append(fact)
-                    
+
         if count == max_count:
             break
 
         else:
             continue
-    
-    return list_facts             
+
+    return list_facts
+
 
 # Exercise 2:
+
 
 def num_joey_facts():
     count = 0
@@ -41,6 +44,7 @@ def num_joey_facts():
             if count_joeys == 10:
                 return len(set(list_fact_joey))
 
+
 # Exercise 3:
 def koala_weight():
     weight = 0
@@ -48,21 +52,22 @@ def koala_weight():
     while weight == 0:
         output = random_koala_fact()
         if "kg" in output:
-            string_weight = output[output.find("kg")-2:-3]
+            string_weight = output[output.find("kg") - 2 : -3]
             return int(string_weight)
+
 
 # This block is only executed if this script is run directly (python main.py)
 # It is not run if you import this file as a module.
 if __name__ == "__main__":
-    #print(random_koala_fact())
+    # print(random_koala_fact())
 
-    """ Write the calls to your functions here. """
-    
+    """Write the calls to your functions here."""
+
     # Exercise 1:
     print(unique_koala_facts(500000))
 
     # Exercise 2:
-    #print(num_joey_facts())
+    print(num_joey_facts())
 
     # Exercise 3:
-    #print(koala_weight())
+    print(koala_weight())
