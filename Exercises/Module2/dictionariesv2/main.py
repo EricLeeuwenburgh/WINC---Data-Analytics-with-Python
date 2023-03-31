@@ -45,7 +45,7 @@ def add_biometric_data(passport, bio_type, bio_value, bio_date):
 
     biometric_data = {"value": bio_value, "date": bio_date}
     passport["biometric"][bio_type] = biometric_data
-         
+    
     return passport
 
 # -- See code from teacher above, much cleaner better to start with an empty list/dictionary and fill it afterwards --
