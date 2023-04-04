@@ -124,4 +124,100 @@ for k in range(len(X)):
 for r in result:
    print(r)
 
-# Exercise 15 - Transpose a given matrix:
+# Exercise 15 - Sort a list in alphabetic order:
+list = ["f","e","z","r","p","b","c","s","a"] 
+list.sort()
+
+print(list)
+
+# Exercise 16 - Find most frequent number in list:
+list = [1,2,3,4,1,2,3,4,5,2,1,2,1,3,4,2,2,2,2,3,3,3,4,4,4]
+
+def most_frequent(list):
+    return max(set(list), key = list.count)
+
+print(most_frequent(list))
+
+# Exercise 17 - Calculte the area of a triangle:
+def area_triangle(width, height):
+    area = 0.5*width*height
+
+    return area
+
+print(area_triangle(7,10))
+# Exercise 18 - Convert Km to Miles:
+
+def km_to_miles(input:float):
+    miles = input * 0.621371192
+
+    return miles
+
+print(km_to_miles(10))
+
+# Exercise 19 - Program a calender:
+import calendar
+
+yy = 2023  # year
+mm = 4    # month
+
+print(calendar.month(yy, mm))
+
+# Exercise 20 - Check if 'leap' year (schrikkel jaar):
+def leap_year(year):
+    if year % 4 == 0:
+        print("It's leap year!")
+    else:
+        print("It's not leap year.")
+
+leap_year(2023)
+
+# Exercise 21 - Find sum of natural numbers:
+def sum_natural_number(number: int) -> int:
+    if number < 0:
+        print("Enter a positive number")
+    else:
+        sum = 0
+   
+    while(number > 0):
+       sum += number
+       number -= 1
+    print("The sum is", sum)
+
+sum_natural_number(16)
+
+# Exercise 22 - Find lowest common multiple of two numbers:
+num1 = 12
+num2 = 14
+for i in range(max(num1, num2), 1 + (num1 * num2)):
+    if i % num1 == i % num2 == 0:
+        lcm = i
+        break
+print("LCM of", num1, "and", num2, "is", lcm)
+
+# Exercise 23 - Find highest common factor of two numbers:
+num1 = 36
+num2 = 60
+hcf = 1
+
+for i in range(1, min(num1, num2)):
+    if num1 % i == 0 and num2 % i == 0:
+        hcf = i
+print("HCF of", num1, "and", num2, "is", hcf)
+
+# Exercise 24 - Sort words in alphabetic order:
+string = "sort the words in this string in alphabetic order."
+splitted_string = string.split()
+splitted_string.sort()
+print(splitted_string)
+
+# Exercise 25 - Sort elements in a list in descending order:
+list = ["a", "d,", "b", "s", "z", "p", "o", "c", "f", "h", "u", "l", "n", "k"]
+list.sort()
+print(list)
+
+# Exercise 26 - Sort elements in a list in ascending order:
+list = ["a", "d,", "b", "s", "z", "p", "o", "c", "f", "h", "u", "l", "n", "k"]
+list.sort(reverse=True)
+print(list)
+
+# Exercise 27 - Generate series of even numbers:
