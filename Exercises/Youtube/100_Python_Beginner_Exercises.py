@@ -1,3 +1,5 @@
+import numpy
+
 # Exercise 1 - Print "Hello World!":
 print("Hello World!)")
 
@@ -221,3 +223,79 @@ list.sort(reverse=True)
 print(list)
 
 # Exercise 27 - Generate series of even numbers:
+print([i for i in range(11) if i % 2 == 0])
+
+# Exercise 28 - Generate series of odd numbers:
+print([i for i in range(11) if i % 2 == 1])
+
+# Exercise 29 - Generate series of prime numbers:
+primes = []
+for num in range(100):
+   # number 1 is not a prime
+   if num > 1:
+       for i in range(2, num):
+           if (num % i) == 0:
+               break
+       else:
+           primes.append(num)
+
+print(primes)
+
+# Exercise 30 - Generate series of Fibonacci numbers (= sum of the two preceding number):
+nterms = 7 #int(input("How many terms? "))
+
+# first two terms
+n1, n2 = 0, 1
+count = 0
+
+# check if the number of terms is valid
+if nterms <= 0:
+   print("Please enter a positive integer")
+# if there is only one term, return n1
+elif nterms == 1:
+   print("Fibonacci sequence upto",nterms,":")
+   print(n1)
+# generate fibonacci sequence
+else:
+   print("Fibonacci sequence:")
+   while count < nterms:
+       print(n1)
+       nth = n1 + n2
+       # update values
+       n1 = n2
+       n2 = nth
+       count += 1
+
+# Exercise 31 - Remove "," from a given string:
+string = "Hello, I am a python, developer"
+updated_string = string.replace(",", "")
+print(updated_string)
+
+# Exercise 32 - Remove all duplicates from a given list:
+list = ["h","h","h","e","e","l","l","o","o","o","o","!"]
+result = set(list)
+print(result)
+
+# Exercise 33 - Find the smallest number from a list:
+list = [341,425,234,943,701,59,183,43.5,250]
+print(min(list))
+
+# Exercise 34 - Find the largest number from a list:
+list = [341,425,234,943,701,59,183,43.5,250]
+print(max(list))
+
+# Exercise 35 - Check if a given character if a vowel or consonant:
+def character_check(character):
+    vowels = ["a", "e", "i", "o", "u"] 
+    if character in vowels:
+        print(f"'{character}' is a vowel")
+    else:
+        print(f"'{character}' is a consonant")
+
+character_check("o")
+
+# Exercise 36 - Find the sum of all elements from a list:
+list = [341,425,234,943,701,59,183,43.5,250]
+print(sum(list))
+
+# Exercise 37 - 

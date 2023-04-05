@@ -44,3 +44,6 @@ def remove_toto_albums(wrong_movie_names):
     return wrong_movie_names
 
 print(remove_toto_albums(movie_names))
+
+set = {4,2,3,6.7,3.8}
+print(set)

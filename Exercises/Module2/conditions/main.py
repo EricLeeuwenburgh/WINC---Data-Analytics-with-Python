@@ -28,8 +28,7 @@ def farm_action(weather,time_of_day,cow_milking_status,location_of_cows,season,s
     elif mow_grass:
         return "mow grass"
     
-    elif wait:
-        return "wait"
+    elif wait: return "wait"
 
 print(farm_action("rainy", "night", False, 'cowshed', 'winter', True, True))   # fertilize pasture
 print(farm_action("rainy", "night", False, 'cowshed', 'winter', False, True))  # wait
