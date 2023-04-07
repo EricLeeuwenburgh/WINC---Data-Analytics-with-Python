@@ -242,23 +242,23 @@ for num in range(100):
 print(primes)
 
 # Exercise 30 - Generate series of Fibonacci numbers (= sum of the two preceding number):
-nterms = 7 #int(input("How many terms? "))
+input = 7 #int(input("How many terms? "))
 
 # first two terms
 n1, n2 = 0, 1
 count = 0
 
 # check if the number of terms is valid
-if nterms <= 0:
+if input <= 0:
    print("Please enter a positive integer")
 # if there is only one term, return n1
-elif nterms == 1:
-   print("Fibonacci sequence upto",nterms,":")
+elif input == 1:
+   print("Fibonacci sequence upto",input,":")
    print(n1)
 # generate fibonacci sequence
 else:
    print("Fibonacci sequence:")
-   while count < nterms:
+   while count < input:
        print(n1)
        nth = n1 + n2
        # update values
@@ -298,4 +298,34 @@ character_check("o")
 list = [341,425,234,943,701,59,183,43.5,250]
 print(sum(list))
 
-# Exercise 37 - 
+# Exercise 37 - Find number of digits from given number:
+number = 100000
+digits = len(str(number))
+print(digits)
+
+# Exercise 38 - Find unique numbers from list:
+list = [10,20,30,10,20,50]
+unique = []
+
+for number in list:
+    if number not in unique:
+        unique.append(number)
+
+print(unique)
+
+# Exercise 39 - Count occurences of character in a string:
+string = "I am a Python developer"
+
+def count_character(input):
+    count = 0
+    
+    for character in string:
+        if input == character:
+            count += 1
+
+    return count
+
+print(count_character("o"))
+
+# Exercise 40 - Find number of word in a given string:
+string = "I am a Python developer"

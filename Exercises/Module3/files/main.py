@@ -8,20 +8,23 @@ from zipfile import ZipFile
 import pathlib
 
 # Exercise 1
+absolute_path = os.getcwd()
+
 def clean_cache():
-    path = "C:/Users/Eric/Documents/WINC_Data_Analytics_with_Python/Exercises/Module3/files/cache"
-    if os.path.isdir(path):
-        shutil.rmtree(path)
+    cache_folder = "cache"
+    full_path = os.path.join(absolute_path, cache_folder)
+    if os.path.isdir(full_path):
+        shutil.rmtree(full_path)
     
-    os.mkdir(path)
-    print("Succesfully cleaned " + path)
+    os.mkdir(full_path)
+    print("Succesfully cleaned " + full_path)
 
 
 clean_cache()
 
 # Exercise 2
-zip_file = "C:/Users/Eric/Documents/WINC_Data_Analytics_with_Python/Exercises/Module3/files/data.zip"
-destination = "C:/Users/Eric/Documents/WINC_Data_Analytics_with_Python/Exercises/Module3/files/cache"
+zip_file = os.path.join(absolute_path, "data.zip")
+destination = os.path.join(absolute_path, "cache")
 
 def cache_zip(zip_path:str, des_path:str):
     with ZipFile(os.path.abspath(zip_path)) as zObject:
@@ -33,21 +36,18 @@ cache_zip(zip_file, destination)
 
 # Exercise 3
 def cached_files():
-    cache = pathlib.Path(os.path.abspath(destination))
-    list = []
+    cache = pathlib.Path(destination)
+    cache_content = []
 
     # Using os module:
-    #list = os.listdir(cache)
-    
-    # Using pathlib module:
-    #list = list(cache.iterdir())
+    #cache_content = os.listdir(cache)
     
     for item in cache.iterdir():
-        list.append(str(item))
-    
-    return list
+        cache_content.append(str(item)) # str() removes the "WindowsPath"-prefix
+   
+    return cache_content
 
-cache_list = (cached_files())
+cache_list = cached_files()
 
 # Exercise 4
 def find_password(input):
@@ -59,10 +59,8 @@ def find_password(input):
                     if word in line:
                         #print("Password found in file: " + file)
                         split_password = line.split(" ")
-                        #print(split_password)
                         password = split_password[1].replace("\n", "")
-                        #print(password)
+                        print("The password = " + password)
                         return password
        
-
 find_password(cache_list)
