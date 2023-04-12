@@ -40,3 +40,12 @@ modulo_222 = new_integers % 222 == 0
 new_integers_modulo = new_integers[modulo_222]
 print("Complex B:")
 print(np.min(new_integers_modulo))
+
+# Youtube
+a = np.arange(0, 9).reshape(3,3)
+b = np.ones((3,3), dtype=int)
+
+b.fill(5)
+print(a, "\n", b)
+print(a + b)
+

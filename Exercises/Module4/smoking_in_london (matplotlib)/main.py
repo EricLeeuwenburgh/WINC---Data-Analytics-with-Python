@@ -33,12 +33,12 @@ total = total[:10]
 # Exercise 1 - Horizontal bar chart
 import matplotlib.pyplot as plt
 
-fig, ax = plt.subplots()
+plt.figure(figsize=(8,5), dpi=100)  # Optional, matplotlib also uses default values depending on the input data
 
 boroughs = total.loc[:,"boroughs"]
 smokers_2010 = total.loc[:,"2010"]
 
-ax.barh(boroughs.iloc[::-1], smokers_2010[::-1]) # reversing order to alpabetical from top to bottom
+plt.barh(boroughs.iloc[::-1], smokers_2010[::-1]) # reversing order to alpabetical from top to bottom
 plt.title("Smokers in London (2010), per borough")
 plt.xlabel("Number of smokers")
 plt.ylabel("Borough")
@@ -47,7 +47,7 @@ plt.ylabel("Borough")
 
 
 # Exercise 2 - Line chart
-fig, ax = plt.subplots()
+plt.figure(figsize=(8,5), dpi=100)
 
 years = total.columns[1:]
 
