@@ -67,3 +67,17 @@ print(smoking.loc[smoking.boroughs.str.contains("ham")])
 
 # Using iloc, remember to use '.values' to make it a Numpy array
 print(smoking.iloc[smoking.boroughs.str.contains("ham").values])
+
+# Adding columns + selecting rows and columns
+column = ["Mariya", "Batman", "Spongebob"]
+titled_column =     {"name": column,
+                    "height": [1.67, 1.9, 0.25],
+                    "weight": [54, 100, 1]}
+data = pd.DataFrame(titled_column)
+select_column = data["weight"]
+select_row = data.iloc[1]["weight"]
+print(data)
+
+# Saving dataframe file to current folder
+# data.to_csv("test")
+# data.to_csv("sep.txt", sep="\t")
