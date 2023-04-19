@@ -12,7 +12,7 @@ countries.columns = ["Country", "1990", "2005", "2017", "2021", "2017_world_%", 
 
 # Filtering out the rows containing 'not countries' (like: World and EU)
 countries = countries.loc[3:]
-countries = countries.drop(67)
+countries = countries.drop(index=67)
 
 # Removing any unwanted separators (needed for conversion to numeric)
 def remove_separator(value):

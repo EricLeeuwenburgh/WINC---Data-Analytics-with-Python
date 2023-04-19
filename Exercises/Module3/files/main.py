@@ -13,7 +13,7 @@ absolute_path = os.getcwd()
 def clean_cache():
     cache_folder = "cache"
     full_path = os.path.join(absolute_path, cache_folder)
-    if os.path.isdir(full_path):
+    if os.path.isdir(full_path):    # If path already exist then run:
         shutil.rmtree(full_path)
     
     os.mkdir(full_path)
