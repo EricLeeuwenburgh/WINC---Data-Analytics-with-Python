@@ -329,3 +329,44 @@ print(count_character("o"))
 
 # Exercise 40 - Find number of word in a given string:
 string = "I am a Python developer"
+split = string.split(" ")
+print(len(split))
+
+# Exercise 41 - Write to a program to check if a string is empty or blank:
+def is_blank(string):
+    if len(string) == 0:
+        print("It's blank")
+    else:
+        print("It's not blank")
+
+is_blank("Hello")
+
+# Exercise 42 - Convert a string to an integer:
+string = "20205"
+integer = int(string)
+print(type(integer))
+
+# Exercise 43 - Reverse a given string:
+string = "HelloWorld"
+reverse_string = string[::-1]
+print(reverse_string)
+
+# Exercise 44 - Convert a list into a string:
+list = ["Hello", "I", "am", "a", "Python", "Developer"]
+separator = ","
+string = separator.join(list)
+print(string.replace(",", " "))
+
+# Exercise 45 - Display a string in upper_case:
+string = "abcde"
+print(string.upper())
+
+# Exercise 46 - Display a string in lower_case:
+string = "ABCDE"
+print(string.lower())
+
+# Exercise 47 - Display a pattern with "*":
+pattern = "*"
+for i in range(5):
+    print(pattern)
+    pattern += "*" # needs updating so it print a christmas tree like pattern
