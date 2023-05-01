@@ -367,6 +367,16 @@ print(string.lower())
 
 # Exercise 47 - Display a pattern with "*":
 pattern = "*"
-for i in range(5):
-    print(pattern)
-    pattern += "*" # needs updating so it print a christmas tree like pattern
+num_rows = 4
+
+for i in range(num_rows):
+    # print spaces before asterisks
+    for j in range(num_rows-i):
+        print(" ", end="")
+    # print asterisks
+    for k in range(2*i+1):
+        print(pattern, end="")
+    # move to next line
+    print()
+
+# Exercise 48 - 
