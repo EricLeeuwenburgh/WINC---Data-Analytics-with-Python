@@ -64,5 +64,90 @@ print(df.corr())
 ## NumPy correlation (doesn't show p-value)
 print(np.corrcoef(df["Start_Salary"], df["Current_Salary"]))
 
-## SciPy correction (incl. p-value)
+## SciPy correlation (incl. p-value)
 print(pearsonr(df["Start_Salary"], df["Current_Salary"]))
+
+
+'''
+Difference between Correlation and Causation:
+
+Correlation and causation are two concepts in statistics that are often confused with each other. While both of these terms 
+are related to the relationship between two variables, they are not the same thing.
+
+Correlation refers to a statistical measure that indicates how strongly two variables are related to each other. 
+A correlation coefficient can range from -1 to +1, with a value of 0 indicating no correlation and a value of 1 indicating 
+a perfect positive correlation. However, correlation does not imply causation. In other words, just because two variables are 
+strongly correlated does not mean that one causes the other.
+
+Causation, on the other hand, refers to a relationship between two variables in which one variable (the cause) directly 
+affects the other variable (the effect). Causation implies correlation, but correlation does not necessarily imply causation. 
+In order to establish causation, a researcher must conduct experiments or studies that manipulate the supposed cause and 
+observe the effect.
+
+In summary, correlation measures the strength of the relationship between two variables, while causation indicates that 
+one variable directly affects another. Correlation does not imply causation, and establishing causation requires additional 
+evidence beyond a correlation coefficient.
+
+'''
+#------------------------------------------------------------------------------------------------------------------------------------#
+
+'''
+Gini coefficient:
+
+A Gini coefficient of 0 indicates perfect equality, meaning everyone in the population has the same income (or wealth, or education, 
+etc.), while a Gini coefficient of 1 indicates perfect inequality, meaning one person has all the income (or wealth, or education, etc.) while everyone else has none.
+
+A Gini coefficient between 0 and 1 represents the degree of inequality in the population, where higher values indicate greater 
+inequality. For example, a Gini coefficient of 0.4 means that the top 20% of the population holds 60% of the income (or wealth, 
+or education, etc.), while the bottom 20% holds only 5%.
+
+In summary, the higher the Gini coefficient, the greater the degree of inequality in the population.
+
+Common way to interpret Gini coefficient values:
+
+ - A Gini coefficient of 0 to 0.2:
+   indicates a relatively equal distribution of income, wealth, or education. 
+   This means that the population is relatively homogeneous in terms of the measured variable, 
+   and there is less inequality in the distribution.
+
+ - A Gini coefficient of 0.2 to 0.4:
+   indicates a moderate level of inequality in the distribution of income, wealth, or education. 
+   In this range, there is a notable difference in the distribution of the measured variable, 
+   with a significant portion of the variable concentrated in a relatively small part of the population.
+
+ - A Gini coefficient of 0.4 and above: 
+   indicates a high level of inequality in the distribution of income, wealth, or education. 
+   In this range, the concentration of the measured variable is more extreme, with a significant amount 
+   of the variable held by a small portion of the population, while the rest of the population has less access to it.
+
+However, it's important to note that these are general guidelines and should be interpreted with caution. 
+Gini coefficients may also be affected by factors such as the size and composition of the population, 
+the measurement of the variable, and the time period studied.
+
+'''
+#------------------------------------------------------------------------------------------------------------------------------------#
+
+'''
+Re-sampling:
+
+Resampling is a statistical technique in which a new sample is drawn from an existing dataset. Resampling can be useful for a 
+variety of purposes, such as estimating the variability of a statistic, validating a model, or testing a hypothesis.
+
+There are two main types of resampling:
+
+- Bootstrapping: This technique involves taking random samples with replacement from the original dataset to create multiple 
+new datasets. This can help in estimating the sampling distribution of the data and calculating confidence intervals for the 
+correlation coefficient and p-value.
+
+- Permutation test: This technique involves randomly permuting the labels of one of the variables (in this case, GDP per capita) 
+and recalculating the correlation coefficient. This process is repeated multiple times to create a null distribution. 
+The p-value can then be calculated by comparing the observed correlation coefficient with the null distribution.
+
+- Cross-validation: This technique involves splitting the data into multiple subsets and training the model on one subset while 
+testing it on the other subsets. This can help in estimating the generalizability of the correlation coefficient and p-value.
+
+- Monte Carlo simulation: This technique involves generating random data with similar characteristics to the original dataset and 
+calculating the correlation coefficient and p-value for each simulated dataset. This can help in estimating the probability of 
+obtaining the observed correlation coefficient and p-value by chance.
+
+'''
