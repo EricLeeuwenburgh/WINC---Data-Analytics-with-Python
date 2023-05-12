@@ -379,4 +379,160 @@ for i in range(num_rows):
     # move to next line
     print()
 
-# Exercise 48 - 
+# Exercise 48 - Display a reverse pattern with "*":
+pattern = "*"
+num_rows = 4
+
+for i in range(num_rows-1,-1,-1):
+    # print spaces before asterisks
+    for j in range(num_rows-i):
+        print(" ", end="")
+    # print asterisks
+    for k in range(2*i+1):
+        print(pattern, end="")
+    # move to next line
+    print()
+
+# Exercise 49 - Display a triangle pattern with "*":
+pattern = "*"
+num_rows = 5
+
+for i in range(num_rows):
+    # print asterisks
+    for k in range(i+1):
+        print(pattern, end="")
+    # move to next line
+    print()
+
+# Exercise 50 - Display a box pattern with "*":
+for i in range(3):
+    print("***")
+
+# Exercise 51 - Display a triangle pattern with "*":
+pattern = "*"
+num_rows = 5
+
+for i in range(num_rows):
+    # print spaces before asterisks
+    for j in range(num_rows-i):
+        print(" ", end="")
+    # print asterisks
+    for k in range(i+1):
+        print(pattern, end="")
+    # move to next line
+    print()
+
+# Exercise 52 - Display a diamond pattern with "*":
+pattern = "*"
+num_rows = 4
+
+for i in range(num_rows):
+    # print spaces before asterisks
+    for j in range(num_rows-i):
+        print(" ", end="")
+    # print asterisks
+    for k in range(2*i+1):
+        print(pattern, end="")
+    # move to next line
+    print()
+for i in range(num_rows-1,-1,-1):
+    # print spaces before asterisks
+    for j in range(num_rows-i):
+        print(" ", end="")
+    # print asterisks
+    for k in range(2*i+1):
+        print(pattern, end="")
+    # move to next line
+    print()
+
+# Exercise 53 - Display a triangle pattern with "numbers 1-5":
+num_rows = 5
+
+for i in range(num_rows):
+    # print numbers
+    for k in range(i+1):
+        print(k+1, end="")
+    # move to next line
+    print()
+
+# Exercise 54 - Display a triangle pattern with "capital letters":
+num_rows = 5
+char = 65
+
+for i in range(num_rows):
+    # print characters
+    for k in range(i+1):
+        print(chr(char), end="")
+    char += 1
+    # move to next line
+    print()
+
+# Exercise 55 - Write a program to delete an element on a given index:
+remove_index = 3
+
+list = ["a","b","c","d","e","f","g","h"]
+del list[remove_index]
+print(list)
+
+# Exercise 56 - Write a program to convert minutes to seconds:
+def minutes(minutes):
+    print(f"Your input of '{minutes}' minutes is equal to this many seconds:")
+    seconds = minutes * 60
+    return seconds
+
+print(minutes(10))
+
+# Exercise 57 - Write a program to convert hours to seconds:
+def hours(hours):
+    print(f"Your input of '{hours}' hours is equal to this many seconds:")
+    seconds = hours * 3600
+    return seconds
+
+print(hours(1))
+
+# Exercise 58 - Write a program to convert age to days:
+import datetime
+
+dob_str = "1984-1-5"
+dob = datetime.datetime.strptime(dob_str, "%Y-%m-%d")
+today = datetime.datetime.today()
+age_in_days = (today - dob).days
+
+print("Your age in days is:", age_in_days)
+
+# Exercise 59 - Concatenate two integer lists:
+list1 = [1,2,3,4,5]
+list2 = [6,7,8,9,10]
+list = list1 + list2
+print(list)
+
+# Exercise 60 - Convert decimal number to binary:
+decimal_num = 555
+
+binary_num = ""
+
+if decimal_num == 0:
+    binary_num = "0"
+else:
+    while decimal_num > 0:
+        remainder = decimal_num % 2
+        binary_num = str(remainder) + binary_num
+        decimal_num = decimal_num // 2
+
+print("The binary equivalent is:", binary_num)
+
+# Exercise 61 - Convert binary to number:
+binary = "10101"
+
+decimal = 0
+for i in range(len(binary)):
+    decimal += int(binary[i]) * 2**(len(binary)-i-1)
+
+print("The decimal equivalent of", binary, "is", decimal)
+
+# Exercise 62 - Convert decimal number to octal (base-8 number):
+dec_num = 555
+octal_num = oct(dec_num)
+print("The octal representation of", dec_num, "is", octal_num[2:])
+
+# Exercise 63 - 
