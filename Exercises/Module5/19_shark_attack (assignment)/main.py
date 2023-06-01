@@ -20,7 +20,7 @@ If an assumption or decision possibly created a bias please write about this as 
 # %load_ext google.colab.data_table
 
 # Reading in the dataset (global data on shark attacks)
-path = "attacks.csv"
+path = "https://raw.githubusercontent.com/EricLeeuwenburgh/WINC---Data-Analytics-with-Python/master/Exercises/Module5/19_shark_attack%20(assignment)/attacks.csv"
 df = pd.read_csv(path, encoding='ISO-8859-1')   # "ISO-8859" needed to be able to read the downloaded file
 
 # Filter out columns which are not needed for this assignment

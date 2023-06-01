@@ -1,9 +1,8 @@
-import numpy as np
+<!-- import numpy as np
 import pandas as pd
-from scipy.stats import pearsonr
+from scipy.stats import pearsonr -->
 
-'''
-Pearson correlation:
+# Pearson correlation:
 
 The Pearson correlation is a statistical measure that describes the strength and direction of the relationship 
 between two continuous variables. It ranges from -1 to 1, where a value of 1 indicates a perfect positive relationship 
@@ -18,7 +17,7 @@ The Pearson correlation is often used in research to determine whether there is 
 such as the relationship between height and weight, or between age and income. It can help us understand how closely two 
 variables are related and can be used to make predictions or draw conclusions based on the data.
 
-Absolute Value      Interpretation
+**Absolute Value**      **Interpretation**
 0.00 < 0.10         Negligible
 0.10 < 0.20         Weak
 0.20 < 0.40         Moderate
@@ -26,9 +25,9 @@ Absolute Value      Interpretation
 0.60 < 0.80         Strong
 0.80 <= 1.00        Very Strong
 
-----------------------------------------------------------------------------------------------------------------------------
+<!-- ---------------------------------------------------------------------------------------------------------------------------- -->
 
-P-value:
+# P-value:
 The p-value is a way to determine if the results of a study are meaningful or just happened by chance. It's like rolling 
 a dice and getting a six, and then asking yourself: "Is this just luck or is the dice biased?". The p-value helps to answer 
 that question by giving you a number that tells you how likely it is that the dice is biased. If the p-value is low, 
@@ -40,13 +39,14 @@ results happened by chance alone, and you can conclude that there is a significa
 variables being studied. If the p-value is high (greater than 0.05), then it's likely that the observed results happened 
 by chance, and you can't conclude that there is a significant difference or relationship between the variables.
 
-Interpretation of P-value (standard)
+_Interpretation of P-value (standard)_
 Below 0.05 = Less likely to be based on chance alone (there is a relationship between the two variables)
 Above 0.05 = More likely to be based on chance alone (there is no relationship between the two variables)
 
 More on P-values: https://www.youtube.com/watch?v=kyjlxsLW1Is&list=PLICW5UpCwEj0duPGdUdkzkvbZ9zlhBbi_&index=1&t=567s
+                  https://www.youtube.com/watch?v=4XfTpkGe1Kc&list=PLICW5UpCwEj0duPGdUdkzkvbZ9zlhBbi_&index=2
 
-'''
+<!-- 
 # Generate data 
 np.random.seed(1)  # for reproducibility
 
@@ -67,9 +67,9 @@ print(np.corrcoef(df["Start_Salary"], df["Current_Salary"]))
 ## SciPy correlation (incl. p-value)
 print(pearsonr(df["Start_Salary"], df["Current_Salary"]))
 
+-->
 
-'''
-Difference between Correlation and Causation:
+# Difference between Correlation and Causation:
 
 Correlation and causation are two concepts in statistics that are often confused with each other. While both of these terms 
 are related to the relationship between two variables, they are not the same thing.
@@ -84,15 +84,13 @@ affects the other variable (the effect). Causation implies correlation, but corr
 In order to establish causation, a researcher must conduct experiments or studies that manipulate the supposed cause and 
 observe the effect.
 
-In summary, correlation measures the strength of the relationship between two variables, while causation indicates that 
+_In summary, correlation measures the strength of the relationship between two variables, while causation indicates that 
 one variable directly affects another. Correlation does not imply causation, and establishing causation requires additional 
-evidence beyond a correlation coefficient.
+evidence beyond a correlation coefficient._
 
-'''
-#------------------------------------------------------------------------------------------------------------------------------------#
+<!-- ---------------------------------------------------------------------------------------------------------------------------- -->
 
-'''
-Gini coefficient:
+# Gini coefficient:
 
 A Gini coefficient of 0 indicates perfect equality, meaning everyone in the population has the same income (or wealth, or education, 
 etc.), while a Gini coefficient of 1 indicates perfect inequality, meaning one person has all the income (or wealth, or education, etc.) while everyone else has none.
@@ -103,19 +101,19 @@ or education, etc.), while the bottom 20% holds only 5%.
 
 In summary, the higher the Gini coefficient, the greater the degree of inequality in the population.
 
-Common way to interpret Gini coefficient values:
+**Common way to interpret Gini coefficient values:**
 
- - A Gini coefficient of 0 to 0.2:
+ - **A Gini coefficient of 0 to 0.2:**
    indicates a relatively equal distribution of income, wealth, or education. 
    This means that the population is relatively homogeneous in terms of the measured variable, 
    and there is less inequality in the distribution.
 
- - A Gini coefficient of 0.2 to 0.4:
+ - **A Gini coefficient of 0.2 to 0.4:**
    indicates a moderate level of inequality in the distribution of income, wealth, or education. 
    In this range, there is a notable difference in the distribution of the measured variable, 
    with a significant portion of the variable concentrated in a relatively small part of the population.
 
- - A Gini coefficient of 0.4 and above: 
+ - **A Gini coefficient of 0.4 and above:** 
    indicates a high level of inequality in the distribution of income, wealth, or education. 
    In this range, the concentration of the measured variable is more extreme, with a significant amount 
    of the variable held by a small portion of the population, while the rest of the population has less access to it.
@@ -124,30 +122,27 @@ However, it's important to note that these are general guidelines and should be 
 Gini coefficients may also be affected by factors such as the size and composition of the population, 
 the measurement of the variable, and the time period studied.
 
-'''
-#------------------------------------------------------------------------------------------------------------------------------------#
+<!-- ---------------------------------------------------------------------------------------------------------------------------- -->
 
-'''
-Re-sampling:
+# Re-sampling:
 
 Resampling is a statistical technique in which a new sample is drawn from an existing dataset. Resampling can be useful for a 
 variety of purposes, such as estimating the variability of a statistic, validating a model, or testing a hypothesis.
 
-There are two main types of resampling:
+_There are two main types of resampling:_
 
-- Bootstrapping: This technique involves taking random samples with replacement from the original dataset to create multiple 
+**- Bootstrapping:** This technique involves taking random samples with replacement from the original dataset to create multiple 
 new datasets. This can help in estimating the sampling distribution of the data and calculating confidence intervals for the 
 correlation coefficient and p-value.
 
-- Permutation test: This technique involves randomly permuting the labels of one of the variables (in this case, GDP per capita) 
+**- Permutation test:** This technique involves randomly permuting the labels of one of the variables (in this case, GDP per capita) 
 and recalculating the correlation coefficient. This process is repeated multiple times to create a null distribution. 
 The p-value can then be calculated by comparing the observed correlation coefficient with the null distribution.
 
-- Cross-validation: This technique involves splitting the data into multiple subsets and training the model on one subset while 
+**- Cross-validation:** This technique involves splitting the data into multiple subsets and training the model on one subset while 
 testing it on the other subsets. This can help in estimating the generalizability of the correlation coefficient and p-value.
 
-- Monte Carlo simulation: This technique involves generating random data with similar characteristics to the original dataset and 
+**- Monte Carlo simulation:** This technique involves generating random data with similar characteristics to the original dataset and 
 calculating the correlation coefficient and p-value for each simulated dataset. This can help in estimating the probability of 
 obtaining the observed correlation coefficient and p-value by chance.
 
-'''

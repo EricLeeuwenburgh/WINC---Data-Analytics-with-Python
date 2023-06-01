@@ -1,0 +1,15 @@
+# Data Analytics Conclusions
+In this chapter we look at what factors can have an effect on the conclusions of our data. Generally we try to capture all these variables and mention them as a warning about conclusions about our data. As data analysts it is not our job to have an opinion on the results, but to give a picture that is as accurate as humanly possible.
+
+## Sample size and demographic data
+The very first thing that can impact the reliability is the sample size of an experiment or observation. A study with 10 responses is much less reliable than a study with 1000 responses. In our reporting we should always clearly describe how big the sample size is and whether we as researchers think it is representative. Even if we find that the sample size is not representative the data can be useful as it is an excellent lead for further research.
+
+In reporting the sample size it can also be relevant to report on demographic data. For instance, if we are reporting on tourism in Italy, it might be interesting to know what percentage of the respondents was Italian. The more we can say about the population, the more somebody with domain knowledge can derive from the results of the research.
+
+## Causation versus correlation
+Inevitably there will come a point where we will find some sort of correlation between two values. It is important to keep in mind that this does not mean that there is a causal relationship between the two values and report this accordingly. An example of a scenario where causation and correlation have cause significant confusion is that of red meat and cancer. A study found a strong correlation between respondents who ate red meat and their chance of developing some sort of cancer. This was reported as a causal relationship. In truth, while there definitely was a correlation between the two values, there was little evidence for a causal relationship, as it later turned out that consumers of red meat just led less healthy lives in general and more often also smoked. So regardless of whether this statistic is true or not with regard to red meat, it resulted in a rather sensational headline that in the end was not supported by hard science.
+
+## Data acquisition method
+Though mentioned briefly in an earlier chapter, data acquisition can have a massive impact on the dataset. It is possible that the instrumentation of your data collection was faulty and that the data you recorded is not 100% accurate. It is possible that the questions in your survey were not understood, or did not capture the full breadth of what you were trying to figure out. It is also possible that your questions contained some form of bias which resulted in some influence in the answers you got.
+
+Ideally you would catch all these problems before you start your study and analytics, but this is not always possible. It is then important to reflect on the process and be very critical about these matters and report them in order to be able to make informed decisions about the conclusions that you draw from the data.

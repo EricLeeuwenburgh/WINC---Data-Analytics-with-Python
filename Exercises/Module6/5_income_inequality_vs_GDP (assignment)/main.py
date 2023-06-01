@@ -62,7 +62,7 @@ print("Correlation coefficient between 'GDP' and 'Gini coefficient' =", corr_coe
 print("According the guidelines there is a 'Relatively Strong' correlation.\n")
 
 ## Calculate Pearson correlation incl. P-value
-corr_pvalue = pearsonr(df["GDP per capita"], df["Gini coefficient"])                    # Outcome is very close to '0'
+corr_pvalue = pearsonr(df["GDP per capita"], df["Gini coefficient"])                    # Outcome 'P-value' is very close to '0'
 print("The P-value between 'GDP' and 'Gini coefficient' =", corr_pvalue[1])
 print("According the guidelines there is a 'Relatively High' chance of a relationship between these two values.\n")
 
