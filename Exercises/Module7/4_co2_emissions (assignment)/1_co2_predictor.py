@@ -80,7 +80,7 @@ plt.bar(relative_percentages.index, relative_percentages.values, color=['gray', 
 
 plt.xticks(rotation=90)
 plt.ylabel("CO2 Emission percentage (%)")
-plt.title("Relative CO2 Emissions by Sector (2019)")
+plt.title("Figure 1. Relative CO2 Emissions by Sector (2019)")
 plt.grid(axis='y')
 
 plt.tight_layout()
@@ -111,7 +111,7 @@ ax.xaxis.set_major_locator(ticker.MultipleLocator(base=0.05))
 plt.xticks(rotation=90)
 
 ax.set_xlabel('Relative size of sector')
-ax.set_title('Top 50 - CO2 emitting countries per capita (2021)\nSorted by the relative size of their biggest CO2 emitting sector (2019)')
+ax.set_title('Figure 2. Top 50 - CO2 emitting countries per capita (2021)\nSorted by the relative size of their biggest CO2 emitting sector (2019)')
 
 legend_handles = [plt.Rectangle((0, 0), 1, 1, color=sector_colors[sector]) for sector in unique_sectors]
 ax.legend(legend_handles, unique_sectors, loc='lower right')
@@ -198,6 +198,7 @@ merged_df.dropna(inplace=True)         # Leaving only 49 countries
 
 # Corrilations & P-values heatmap
 fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(16, 6))
+fig.suptitle("Figure 3. CO₂ Emissions per capita - Relationships ")
 
 correlation_matrix = merged_df.corr()
 p_values = np.zeros_like(correlation_matrix.values)
@@ -211,11 +212,11 @@ sns.heatmap(p_values, annot=True, cmap='YlGnBu', ax=ax2, cbar=False, fmt='.3f', 
 
 ax1.set_xticklabels(ax1.get_xticklabels(), fontsize=8)
 ax1.set_yticklabels(ax1.get_yticklabels(), fontsize=8)
-ax1.set_title('CO₂ emissions per capita - Correlations')
+ax1.set_title('Correlation matrix')
 
 ax2.set_xticklabels(merged_df.columns, rotation=90, fontsize=8)
 ax2.set_yticklabels(merged_df.columns, rotation=0, fontsize=8)
-ax2.set_title('CO₂ emissions per capita - P-values')
+ax2.set_title('P-value matrix')
 
 fig.tight_layout()
 plt.savefig('figures/figure3.png')
@@ -255,9 +256,9 @@ plt.plot(x, 10**(regression_line), color='red', label='Linear Regression')
 plt.xscale('log')       # Set plot to logarithmic scale
 plt.yscale('log')
 
-plt.xlabel('GDP per capita')
-plt.ylabel('CO₂ Emissions per capita')
-plt.title('CO₂ Emissions per capita vs GDP per capita (2018)')
+plt.xlabel('GDP per capita (thousand $)')
+plt.ylabel('CO₂ Emissions per capita (tonnes)')
+plt.title('Figure 4. CO₂ Emissions per capita vs GDP per capita (2018)')
 plt.legend()
 
 fig.tight_layout()
@@ -297,7 +298,7 @@ y = df_energy_sources['Annual CO₂ emissions (per capita)']
 
 # Create subplots
 fig, axs = plt.subplots(2, 2, figsize=(12, 8))
-fig.suptitle('Energy Consumption vs. CO₂ Emissions per capita (2021)')
+fig.suptitle('Figure 5. Energy Consumption vs. CO₂ Emissions per capita (2021)')
 
 # Subplot - Total Energy 
 axs[0, 0].scatter(x_total, y, color='purple', label='Total', edgecolor='black', alpha=0.75)
@@ -348,11 +349,11 @@ df_co2_cons_vs_prod.drop(['Code', 'Share of world population', 'Income classific
 df_co2_cons_vs_prod.dropna(inplace=True)
 df_co2_cons_vs_prod['CO₂ consumption vs production (%)'] = round(df_co2_cons_vs_prod['Annual consumption-based CO₂ emissions (per capita)'] / df_co2_cons_vs_prod[ 'Annual CO₂ emissions (per capita)'] * 100, 2)
 df_co2_cons_vs_prod = df_co2_cons_vs_prod[df_co2_cons_vs_prod['Year'] == 2020]          # Selecting '2020' = most recent year, 2021 has a lot of missing data
+df_co2_cons_vs_prod.set_index('Entity', inplace=True)
 
 #------------------------------------------------------------------------------------------------------------------------------------#
 
 ## Scatter plot - Consumption- vs Production-based CO2 emissions (per capita)
-df_co2_cons_vs_prod.set_index('Entity', inplace=True)
 countries = df_co2_cons_vs_prod.index
 consumption_emissions = df_co2_cons_vs_prod['Annual consumption-based CO₂ emissions (per capita)']
 production_emissions = df_co2_cons_vs_prod['Annual CO₂ emissions (per capita)']
@@ -365,16 +366,16 @@ cmap = colors.LinearSegmentedColormap.from_list('TwoColorGradient', ['green', 'r
 
 scatter = ax.scatter(production_emissions, consumption_emissions, c=consumption_vs_production, alpha=0.75, cmap=cmap, norm=norm, edgecolors='black')
 
-plt.xlabel('CO₂ emissions (per capita)')
-plt.ylabel('Consumption-Based CO2 Emissions (per capita)')
-plt.title('Consumption-based vs. production-based CO₂ emissions per capita')
+plt.xlabel('CO₂ emissions per capita (tonnes)')
+plt.ylabel('Consumption-Based CO2 Emissions per capita (tonnes)')
+plt.title('Figure 6. Consumption-based vs. production-based CO₂ emissions per capita')
 
 # Adding labels
 tooltip = mplcursors.cursor(scatter, hover=True)
 
 @tooltip.connect("add")
 def on_add(sel):
-    index = sel.target.index
+    index = sel.index
     sel.annotation.set_text(f"{countries[index]}\n{consumption_vs_production[sel.index]:.2f}%")
 
 # Add colorbar
@@ -395,7 +396,7 @@ plt.savefig('figures/figure6.png')
 ### LAND-USE CHANGE & FORESTRY ANALYSIS
 ## Read in the data and select 2019
 df_sector = df_sector[df_sector['Year'] == 2019]          # Selecting '2019' = most recent year 
-df_sector.drop(['Code', 'Year', 'Buildings', 'Industry', 'Other fuel combustion', 'Transport', 'Manufacturing and construction', 'Fugitive emissions', 'Electricity and heat', 'Biggest sector', 'Relative size'], axis=1, inplace=True)
+df_sector = df_sector.drop(['Code', 'Year', 'Buildings', 'Industry', 'Other fuel combustion', 'Transport', 'Manufacturing and construction', 'Fugitive emissions', 'Electricity and heat', 'Biggest sector', 'Relative size'], axis=1)
 df_sector = df_sector[df_sector['Land-use change and forestry'] != 0]   # All 0 values are excluded, because data is missing or no correction is needed
 
 # Add CO2 emissions per capita to dataset
@@ -419,7 +420,7 @@ scatter = ax.scatter(x, y, c=y, alpha=0.75, cmap=cmap, norm=norm, edgecolors='bl
 
 plt.xlabel('CO₂ emissions per capita (tonnes)')
 plt.ylabel('Land-use change and forestry CO₂ emissions (1000 tonnes)')
-plt.title('Land-use change and forestry CO₂ emissions vs CO₂ emissions per capita')
+plt.title('Figure 7. Land-use change and forestry CO₂ emissions vs CO₂ emissions per capita')
 
 # Adding labels
 tooltip = mplcursors.cursor(scatter, hover=True)
@@ -441,5 +442,8 @@ plt.xscale('log')
 
 plt.tight_layout()
 plt.savefig('figures/figure7.png')
-plt.show()
+#plt.show()
 
+
+#------------------------------------------------------------------------------------------------------------------------------------#
+#------------------------------------------------------------------------------------------------------------------------------------#
