@@ -18,7 +18,8 @@ import seaborn as sns
 
 ### CO2 CHANGE ANALYSIS
 # Read and filter data
-df_co2_per_capita = pd.read_csv("data/co2-per-capita.csv")  # Most recent year = 2021
+url = 'https://raw.githubusercontent.com/EricLeeuwenburgh/WINC---Data-Analytics-with-Python/master/Exercises/Module7/4_co2_emissions%20(assignment)/data/'
+df_co2_per_capita = pd.read_csv(url+"co2-per-capita.csv")  # Most recent year = 2021
 df_co2_per_capita.dropna(subset=['Code'], inplace=True)
 df_co2_per_capita = df_co2_per_capita.drop(df_co2_per_capita[df_co2_per_capita['Entity'].isin(['World'])].index)
 df_co2_per_capita.drop(['Code'], axis=1, inplace=True)
@@ -146,4 +147,4 @@ merged_data.plot(column='Absolute change - CO₂ emissions (per capita)', cmap='
 ax.set_title(f'Figure 11. Absolute change in CO₂ emissions per capita (tonnes) for {year}')
 
 plt.savefig('figures/figure11.png')
-#plt.show()
+plt.show()

@@ -18,7 +18,8 @@ from scipy.optimize import differential_evolution
 
 ### ENERGY USAGE ANALYSIS 
 # Read and filter data
-df_energy_usage = pd.read_csv("data/energy-consumption-global.csv")  # Most recent year = 2021
+url = 'https://raw.githubusercontent.com/EricLeeuwenburgh/WINC---Data-Analytics-with-Python/master/Exercises/Module7/4_co2_emissions%20(assignment)/data/'
+df_energy_usage = pd.read_csv(url+"energy-consumption-global.csv")  # Most recent year = 2021
 df_energy_usage.drop(['Code', 'Traditional biomass (TWh, substituted energy)', 'Coal (TWh, substituted energy)', 
                       'Oil (TWh, substituted energy)', 'Gas (TWh, substituted energy)'], axis=1, inplace=True)
 df_energy_usage = df_energy_usage[df_energy_usage['Year'] > 1950]    # Dropping data before 1950

@@ -20,7 +20,8 @@ import seaborn as sns
 
 ### BIGGEST CO2 ANALYSIS
 ## Find the biggest CO2 emitting countries per capita for 2021
-df_co2_per_capita = pd.read_csv("data/co2-per-capita.csv")
+url = 'https://raw.githubusercontent.com/EricLeeuwenburgh/WINC---Data-Analytics-with-Python/master/Exercises/Module7/4_co2_emissions%20(assignment)/data/'
+df_co2_per_capita = pd.read_csv(url+"co2-per-capita.csv")
 df_co2_per_capita.dropna(subset=['Code'], inplace=True)
 df_co2_per_capita = df_co2_per_capita.drop(df_co2_per_capita[df_co2_per_capita['Entity'] == 'World'].index)
 
